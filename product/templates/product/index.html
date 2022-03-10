@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<div>
+		<h3>Book</h3> <a href="book/addProduct" >Add new book</a>
+		<ul>
+			{% for item in Book %}
+				<li>
+					<div>Title: {{item.title}}</div>
+					<div>Summary: {{item.summary}}</div>
+					<div>Pages: {{item.pages}}</div>
+					<div>Language: {{item.language}}</div>
+					<div>Year Publisher: {{item.yearPublisher}}</div>
+					<div>Author: {{item.author.name}}</div>
+					<div>Publisher: {{item.publisher.name}}</div>
+					<div><a href="book/updateProduct/{{item.id}}">Edit</a></div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div>
+		<h3>Electronics</h3> <a href="electronics/addProduct" >Add new electronics</a>
+		<ul>
+			{% for item in Electronics %}
+				<li>
+					<div>Insurance: {{item.insurance}} {{item.insuranceUnit}}</div>
+					<div>Weight: {{item.weight}} {{item.weightUnit}}</div>
+					<div>Production Adress: {{item.productionAdress}}</div>
+					<div>Description: {{item.description}}</div>
+					<div>Trademark: {{item.trademark.name}} </div>
+					<div><a href="electronics/updateProduct/{{item.id}}">Edit</a></div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div>
+		<h3>Shoes</h3> <a href="shoes/addProduct" >Add new shoes</a>
+		<ul>
+			{% for item in Shoes %}
+				<li>
+					<div>Size: {{item.size}}</div>
+					<div>Color: {{item.color}}</div>
+					<div>Material: {{item.material}}</div>
+					<div>Trademark: {{item.trademark.name}} </div>
+					<div><a href="shoes/updateProduct/{{item.id}}">Edit</a></div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div>
+		<h3>Mobile Phone</h3> <a href="mobilePhone/addProduct" >Add new mobile phone</a>
+		<ul>
+			{% for item in MobilePhone %}
+				<li>
+					<div>Ram: {{item.ram}}</div>
+					<div>Memories: {{item.memories}}</div>
+					<div>Os: {{item.os.name}}</div>
+					<div>Trademark: {{item.trademark.name}} </div>
+					<div><a href="mobilePhone/updateProduct/{{item.id}}">Edit</a></div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div>
+		<h3>Laptop</h3> <a href="laptop/addProduct" >Add new laptop</a>
+		<ul>
+			{% for item in Laptop %}
+				<li>
+					<div>Manufacturer: {{item.manufacturer}}</div>
+					<div>Ram: {{item.ram}}</div>
+					<div>Memories: {{item.memories}}</div>
+					<div>Os: {{item.os.name}}</div>
+					<div>Trademark: {{item.trademark.name}} </div>
+					<div><a href="laptop/updateProduct/{{item.id}}">Edit</a></div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div>
+		<h3>Clothes</h3> <a href="clothes/addProduct" >Add new clothes</a>
+		<ul>
+			{% for item in Clothes %}
+				<li>
+					<div>Color: {{item.color}}</div>
+					<div>Material: {{item.material}}</div>
+					<div>Trademark: {{item.trademark.name}}</div>
+					<div><a href="clothes/updateProduct/{{item.id}}">Edit</a></div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</body>
+</html>

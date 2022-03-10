@@ -1,0 +1,296 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	{% if type_product == "book" %}
+		<h3>Update book</h3>
+		<form action="updateProductToDB" method="post">
+			{% csrf_token %}
+			<table>
+				<input type="text" hidden name="id" value="{{data.id}}">
+				<tr>
+					<td>Title</td>		
+					<td><input type="text" name="title" value="{{data.title}}"></td>
+				</tr>
+				<tr>
+					<td>Summary</td>
+					<td><input type="text" name="summary" value="{{data.summary}}"></td>
+				</tr>
+				<tr>
+					<td>Pages</td>
+					<td><input type="number" name="pages" value="{{data.pages}}"></td>
+				</tr>
+				<tr>
+					<td>Language</td>
+					<td><input type="text" name="language" value="{{data.language}}"></td>
+				</tr>
+				<tr>
+					<td>Year Publisher</td>
+					<td><input type="text" name="yearPublisher" value="{{data.yearPublisher}}"></td>
+				</tr>
+				<tr>
+					<td>Author</td>					
+					<td>
+						<select name="authorId">
+							<option>--Select Author--</option>
+							{% for athor in author %}
+								{% if athor.id == data.author.id %}
+									<option value="{{athor.id}}" selected>{{athor.name}}</option>
+								{% else %}
+									<option value="{{athor.id}}">{{athor.name}}</option>
+								{% endif %}						
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Publisher</td>					
+					<td>
+						<select name="publisherId">
+							<option>--Select Publisher--</option>
+							{% for publish in publisher %}
+								{% if publish.id == data.publisher.id %}
+									<option value="{{publish.id}}" selected>{{publish.name}}</option>
+								{% else %}
+									<option value="{{publish.id}}">{{publish.name}}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+			</table>
+			<button type="submit">Update</button>
+		</form>
+		<div>
+	{% endif %}
+	{% if type_product == "electronics" %}
+		<h3>Update electronics</h3>
+		<form action="updateProductToDB" method="post">
+			{% csrf_token %}
+			<table>
+				<input type="text" hidden name="id" value="{{data.id}}">
+				<tr>
+					<td>Insurance</td>		
+					<td><input type="number" name="insurance" value="{{data.insurance}}"></td>
+				</tr>
+				<tr>
+					<td>Insurance Unit</td>
+					<td><input type="text" name="insuranceUnit" value="{{data.insuranceUnit}}"></td>
+				</tr>
+				<tr>
+					<td>Weight</td>
+					<td><input type="number" name="weight" value="{{data.weight}}"></td>
+				</tr>
+				<tr>
+					<td>Weight Unit</td>
+					<td><input type="text" name="weightUnit" value="{{data.weightUnit}}"></td>
+				</tr>
+				<tr>
+					<td>Production Address</td>
+					<td><input type="text" name="productionAdress" value="{{data.productionAdress}}"></td>
+				</tr>
+				<tr>
+					<td>Description</td>
+					<td><input type="text" name="description" value="{{data.description}}"></td>
+				</tr>
+				<tr>
+					<td>Trade mark</td>					
+					<td>
+						<select name="trademarkId">
+							<option>--Select TradeMark--</option>
+							{% for trmark in trademark %}
+								
+								{% if trmark.id == data.trademark.id %}
+									<option value="{{trmark.id}}" selected>{{trmark.name}}</option>
+								{% else %}
+									<option value="{{trmark.id}}">{{trmark.name}}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+			</table>
+			<button type="submit">Update</button>
+		</form>
+		<div>
+	{% endif %}
+	{% if type_product == "shoes" %}
+		<h3>Update shoes</h3>
+		<form action="updateProductToDB" method="post">
+			{% csrf_token %}
+			<table>
+				<input type="text" hidden name="id" value="{{data.id}}">
+				<tr>
+					<td>Size</td>		
+					<td><input type="number" name="size" value="{{data.size}}"></td>
+				</tr>
+				<tr>
+					<td>Color</td>
+					<td><input type="text" name="color" value="{{data.color}}"></td>
+				</tr>
+				<tr>
+					<td>Material</td>
+					<td><input type="text" name="material" value="{{data.material}}"></td>
+				</tr>				
+					<td>Trade mark</td>					
+					<td>
+						<select name="trademarkId">
+							<option>--Select TradeMark--</option>
+							{% for trmark in trademark %}								
+								{% if trmark.id == data.trademark.id %}
+									<option value="{{trmark.id}}" selected>{{trmark.name}}</option>
+								{% else %}
+									<option value="{{trmark.id}}">{{trmark.name}}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+			</table>
+			<button type="submit">Update</button>
+		</form>
+		<div>
+	{% endif %}
+	{% if type_product == "mobilePhone" %}
+		<h3>Update mobile phone</h3>
+		<form action="updateProductToDB" method="post">
+			{% csrf_token %}
+			<table>
+				<input type="text" hidden name="id" value="{{data.id}}">
+				<tr>
+					<td>ram</td>	
+					<td><input type="text" name="ram" value="{{data.ram}}"></td>
+				</tr>
+				<tr>
+					<td>Memories</td>
+					<td><input type="text" name="memories" value="{{data.memories}}"></td>
+				</tr>
+				<tr>
+					<td>Trade mark</td>					
+					<td>
+						<select name="trademarkId">
+							<option>--Select TradeMark--</option>
+							{% for trmark in trademark %}
+								{% if trmark.id == data.trademark.id %}
+									<option value="{{trmark.id}}" selected>{{trmark.name}}</option>
+								{% else %}
+									<option value="{{trmark.id}}">{{trmark.name}}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>OS</td>					
+					<td>
+						<select name="osId">
+							<option>--Select OS--</option>
+							{% for o in os %}								
+								{% if o.id == data.os.id %}
+									<option value="{{o.id}}" selected>{{o.name}}</option>
+								{% else %}
+									<option value="{{o.id}}">{{o.name}}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+			</table>
+			<button type="submit">Update</button>
+		</form>
+		<div>
+	{% endif %}
+	{% if type_product == "laptop" %}
+		<h3>Update laptop</h3>
+		<form action="updateProductToDB" method="post">
+			{% csrf_token %}
+			<table>
+				<input type="text" hidden name="id" value="{{data.id}}">
+				<tr>
+					<td>Manufacturer</td>		
+					<td><input type="text" name="manufacturer" value="{{data.manufacturer}}"></td>
+				</tr>
+				<tr>
+					<td>Ram</td>		
+					<td><input type="text" name="ram" value="{{data.ram}}"></td>
+				</tr>
+				<tr>
+					<td>Memories</td>
+					<td><input type="text" name="memories" value="{{data.memories}}"></td>
+				</tr>
+				<tr>
+					<td>Trade mark</td>					
+					<td>
+						<select name="trademarkId">
+							<option>--Select TradeMark--</option>
+							{% for trmark in trademark %}
+								{% if trmark.id == data.trademark.id %}
+									<option value="{{trmark.id}}" selected>{{trmark.name}}</option>
+								{% else %}
+									<option value="{{trmark.id}}">{{trmark.name}}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>OS</td>					
+					<td>
+						<select name="osId">
+							<option>--Select OS--</option>
+							{% for o in os %}								
+								{% if o.id == data.os.id %}
+									<option value="{{o.id}}" selected>{{o.name}}</option>
+								{% else %}
+									<option value="{{o.id}}">{{o.name}}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+			</table>
+			<button type="submit">Update</button>
+		</form>
+		<div>
+	{% endif %}
+	{% if type_product == "clothes" %}
+		<h3>Update clothes</h3>
+		<form action="updateProductToDB" method="post">
+			{% csrf_token %}
+			<table>
+				<input type="text" hidden name="id" value="{{data.id}}">
+				<tr>
+					<td>Color</td>		
+					<td><input type="text" name="color" value="{{data.color}}"></td>
+				</tr>
+				<tr>
+					<td>Material</td>		
+					<td><input type="text" name="material" value="{{data.material}}"></td>
+				</tr>
+				<tr>
+					<td>Trade mark</td>					
+					<td>
+						<select name="trademarkId">
+							<option>--Select TradeMark--</option>
+							{% for trmark in trademark %}
+								{% if trmark.id == data.trademark.id %}
+									<option value="{{trmark.id}}" selected>{{trmark.name}}</option>
+								{% else %}
+									<option value="{{trmark.id}}">{{trmark.name}}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+			</table>
+			<button type="submit">Update</button>
+		</form>
+		<div>
+	{% endif %}
+</body>
+</html>
